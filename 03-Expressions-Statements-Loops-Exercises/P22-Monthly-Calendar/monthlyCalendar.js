@@ -10,8 +10,8 @@ function monthlyCalendar([day, month, year]) {
         '<th>Sat</th>' +
         '</tr>\r\n';
 
-    let prevMonthDays = lastMonthDays(month, year);
-    let curMonthDays = lastMonthDays(month + 1, year);
+    let prevMonthDays = lastMonthDays(Number(month), Number(year));
+    let curMonthDays = lastMonthDays(Number(month) + 1, Number(year));
 
     let curMonthFirst = new Date(year, month - 1, 1);
     let curMonthLast = new Date(year, month - 1, curMonthDays);
@@ -34,7 +34,7 @@ function monthlyCalendar([day, month, year]) {
                 html += `<td class="prev-month">${prevMonthStart}</td>`;
                 prevMonthStart++;
             } else {
-                if (curDay === day) {
+                if (curDay === Number(day)) {
                     html += `<td class="today">${curDay}</td>`;
                     curDay++;
                 } else {
@@ -49,7 +49,7 @@ function monthlyCalendar([day, month, year]) {
         html += '<tr>';
 
         for (let i = 1; i <= 7; i++) {
-            if (curDay === day) {
+            if (curDay === Number(day)) {
                 html += `<td class="today">${curDay}</td>`;
                 curDay++;
             } else {
@@ -66,7 +66,7 @@ function monthlyCalendar([day, month, year]) {
 
         for (let i = 1; i <= 7; i++) {
             if (curDay <= curMonthDays) {
-                if (curDay === day) {
+                if (curDay === Number(day)) {
                     html += `<td class="today">${curDay}</td>`;
                     curDay++;
                 } else {
