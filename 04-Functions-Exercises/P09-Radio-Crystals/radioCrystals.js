@@ -4,11 +4,7 @@ function radioCrystals(args) {
     for (let i = 1; i < args.length; i++) {
         let current = args[i];
         console.log(`Processing chunk ${current} microns`);
-
-        if (current === desired) {
-            console.log(`Finished crystal ${desired} microns`);
-        }
-
+        
         current = goCutting(current, desired);
         if (isDesiredReached(current, desired)) continue;
 
