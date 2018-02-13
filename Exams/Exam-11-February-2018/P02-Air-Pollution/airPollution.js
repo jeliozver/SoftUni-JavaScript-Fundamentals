@@ -1,4 +1,4 @@
-function solve(map, forces) {
+function airPollution(map, forces) {
     let matrix = [];
     for (let line of map) {
         let row = line.split(' ').map(Number);
@@ -16,7 +16,6 @@ function solve(map, forces) {
                 if (matrix[value][i] < 0) {
                     matrix[value][i] = 0;
                 }
-
             }
         } else if (action === 'gale') {
             for (let i = 0; i <= 4; i++) {
@@ -37,10 +36,10 @@ function solve(map, forces) {
     let pollutedAreas = [];
     for (let i = 0; i < matrix.length; i++) {
         for (let j = 0; j < matrix[i].length; j++) {
-           if (matrix[i][j] >= 50) {
-               let str = `[${i}-${j}]`;
-               pollutedAreas.push(str);
-           }
+            if (matrix[i][j] >= 50) {
+                let str = `[${i}-${j}]`;
+                pollutedAreas.push(str);
+            }
         }
     }
 

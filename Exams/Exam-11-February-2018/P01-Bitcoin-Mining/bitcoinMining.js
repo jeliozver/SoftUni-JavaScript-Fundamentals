@@ -1,4 +1,4 @@
-function solve(input) {
+function bitcoinMining(input) {
     let shift = [];
     shift.push(' ');
     for (let i = 0; i < input.length; i++) {
@@ -18,7 +18,7 @@ function solve(input) {
         }
 
         collectedGold += goldDay;
-        
+
         while (collectedGold >= bitCoin) {
             bitCoins++;
             collectedGold -= bitCoin;

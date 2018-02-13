@@ -1,6 +1,6 @@
-function solve(input) {
+function surveyParser(input) {
     let surveyRegex = /<svg>((.|\n)*?)<\/svg>/g;
-    let format = /<cat><text>((.|\n)*)\[((.|\n)*)]((.|\n)*)<\/text><\/cat>\s*<cat>(.*)<\/cat>/g;
+    let format = /<cat><text>((.|\n)*)\[((.|\n)*)]((.|\n)*)<\/text><\/cat>\s*<cat>((.|\n)*)<\/cat>/g;
     let valuesRegex = /\s*<g><val>([0-9]+)<\/val>([0-9]+)<\/g>/g;
     let matches = surveyRegex.exec(input);
     let validMatches = [];
@@ -16,6 +16,7 @@ function solve(input) {
                 survey = isValid[3];
                 values = isValid[7];
             }
+
             matches = surveyRegex.exec(input);
         }
 
@@ -38,6 +39,7 @@ function solve(input) {
             average = parseFloat(average.toFixed(2));
             if (votes === 0) average = 0;
             console.log(`${survey}: ${average}`);
+
         } else {
             console.log('Invalid format');
         }
